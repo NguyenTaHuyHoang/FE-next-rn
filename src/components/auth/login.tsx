@@ -10,7 +10,8 @@ const Login = () => {
     const { email, password } = values;
     // trigger login
     const res = await authenticate(email, password);
-    console.log("check res", res);
+    // console.log("check res", res);
+
     // const data = await signIn("credentials", {
     //   email,
     //   password,

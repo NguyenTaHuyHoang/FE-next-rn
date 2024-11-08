@@ -13,7 +13,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
       // e.g. domain, username, password, 2FA token, etc.
       credentials: {
-        email: {},
+        username: {},
         password: {},
       },
       authorize: async (credentials) => {
@@ -23,11 +23,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           method: "POST",
           url: "http://localhost:8080/api/auth/login",
           body: {
-            username: credentials.email,
+            username: credentials.username,
             password: credentials.password,
           },
         });
-        // console.log("check user000", res);
+        // console.log("check res", res);
 
         // data sẽ lưu vào trong session
         // nextAuth có hai cơ chế là lưu ở db hoặc jwt
@@ -66,6 +66,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     session({ session, token }) {
       (session.user as IUser) = token.user;
       return session;
+    },
+
+    // Khi có không user đăng nhập thì web luôn đẩy người dùng về trang login
+    authorized: async ({ auth }) => {
+      // Logged in users are authenticated, otherwise redirect to login page
+      return !!auth;
     },
   },
 });

@@ -31,7 +31,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         // data sẽ lưu vào trong session
         // nextAuth có hai cơ chế là lưu ở db hoặc jwt
-        if (!res.statusCode) {
+        if (res.statusCode === 201) {
           return {
             _id: res.data?.user?._id,
             name: res.data?.user?.name,

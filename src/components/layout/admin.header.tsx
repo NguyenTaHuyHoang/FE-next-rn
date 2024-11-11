@@ -7,12 +7,14 @@ import { DownOutlined, SmileOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Dropdown, Space } from "antd";
 import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
-const AdminHeader = () => {
+const AdminHeader = (props: any) => {
   const { Header } = Layout;
   const { collapseMenu, setCollapseMenu } = useContext(AdminContext)!;
 
-  const { data: session, status } = useSession();
+  // const { data: session, status } = useSession();
+  const { session } = props;
 
   const items: MenuProps["items"] = [
     {
@@ -23,9 +25,10 @@ const AdminHeader = () => {
           rel="noopener noreferrer"
           href="https://www.antgroup.com"
         >
-          1st menu item
+          Settings
         </a>
       ),
+      disabled: true,
     },
     {
       key: "2",
@@ -35,7 +38,7 @@ const AdminHeader = () => {
           rel="noopener noreferrer"
           href="https://www.aliyun.com"
         >
-          2nd menu item (disabled)
+          Theme
         </a>
       ),
       icon: <SmileOutlined />,
@@ -49,7 +52,7 @@ const AdminHeader = () => {
           rel="noopener noreferrer"
           href="https://www.luohanacademy.com"
         >
-          3rd menu item (disabled)
+          Language
         </a>
       ),
       disabled: true,
@@ -57,7 +60,15 @@ const AdminHeader = () => {
     {
       key: "4",
       danger: true,
-      label: "a danger item",
+      label: (
+        <span
+          onClick={() => {
+            signOut();
+          }}
+        >
+          Log out
+        </span>
+      ),
     },
   ];
 

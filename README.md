@@ -1,4 +1,6 @@
-# -------------
+# Front-end for Web Application
+- Author: Nguyễn Tạ Huy Hoàng
+- GitHub: [Ng.thhoang](https://github.com/NguyenTaHuyHoang)
 ## Technologies
 ## Architecture
 ### Overview

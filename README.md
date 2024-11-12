@@ -1,7 +1,14 @@
 # Front-end for Web Application
 - Author: Nguyễn Tạ Huy Hoàng
 - GitHub: [Ng.thhoang](https://github.com/NguyenTaHuyHoang)
+  
 ## Technologies
+- Next.js
+- Auth.js v5 (next-auth)
+- React
+- TypeScript
+- Ant Design
+
 ## Architecture
 ### Overview
 ## Database Modeling

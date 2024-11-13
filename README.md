@@ -19,7 +19,7 @@ git clone https://github.com/NguyenTaHuyHoang/FE-next-rn.git
 ```
 
 2. Set up library:
-    - Install packages
+    - Install packages 
     ```bash
     npm install
     ```

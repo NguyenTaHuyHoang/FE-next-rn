@@ -6,7 +6,7 @@
 - Next.js
 - Auth.js v5 (next-auth)
 - React
-- TypeScript
+- TypeScript 
 - Ant Design
 
 ## Overview
